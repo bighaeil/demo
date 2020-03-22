@@ -1,0 +1,80 @@
+buildscript {
+	ext {
+		springBootVersion = '2.2.5.RELEASE'
+		querydslPluginVersion = '1.0.10'
+	}
+	repositories {
+		mavenCentral()
+		mavenLocal()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+configurations {
+	developmentOnly
+	runtimeClasspath {
+		extendsFrom developmentOnly
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group 'com.example.demo'
+version '1.0-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+	mavenLocal()
+}
+
+dependencies {
+	//springBoot
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	//persistence
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation "org.springframework.boot:spring-boot-starter-jdbc"
+	//log
+	implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc3:1.16'
+
+	//QLRM https://mvnrepository.com/artifact/ch.simas.qlrm
+	compile group: 'ch.simas.qlrm', name: 'qlrm', version: '1.7.1'
+
+	//for dev,prod
+	runtimeOnly 'mysql:mysql-connector-java'
+	//for local, test
+	runtimeOnly 'com.h2database:h2'
+
+	//security
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.security.oauth:spring-security-oauth2:2.0.10.RELEASE'
+	compile group: 'org.springframework.security', name: 'spring-security-jwt', version: '1.0.9.RELEASE'
+
+	//for json bind localDate
+	compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.8.8'
+
+	//lombok
+	compile 'org.projectlombok:lombok'
+
+	//LiveReload
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+	//test
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+	testImplementation 'org.springframework.security:spring-security-test'
+}
+
+test {
+	useJUnitPlatform()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
