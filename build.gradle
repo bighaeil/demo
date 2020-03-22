@@ -38,9 +38,9 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	//persistence
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation "org.springframework.boot:spring-boot-starter-jdbc"
+	//implementation "org.springframework.boot:spring-boot-starter-jdbc"
 	//log
-	implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc3:1.16'
+	//implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc3:1.16'
 
 	//QLRM https://mvnrepository.com/artifact/ch.simas.qlrm
 	compile group: 'ch.simas.qlrm', name: 'qlrm', version: '1.7.1'
