@@ -1,5 +1,6 @@
 package com.example.demo.domain.posts.entity;
 
+import com.example.demo.service.posts.form.PostsSaveForm;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,5 +29,12 @@ public class Posts {
         this.title = title;
         this.content = content;
         this.author = author;
+    }
+
+    public Long update(PostsSaveForm form) {
+        this.title = form.getTitle();
+        this.content = form.getContent();
+        this.author = form.getAuthor();
+        return this.id;
     }
 }

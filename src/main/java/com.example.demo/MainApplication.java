@@ -9,7 +9,6 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 @SpringBootApplication
 @Slf4j
 public class MainApplication extends SpringBootServletInitializer {
-
     public static void main(String[] args) {
         SpringApplication.run(MainApplication.class, args);
     }
