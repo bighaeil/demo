@@ -1,5 +1,6 @@
 package com.example.demo.domain.posts.entity;
 
+import com.example.demo.domain.BaseEntity;
 import com.example.demo.service.posts.form.PostsSaveForm;
 import lombok.Builder;
 import lombok.Getter;
@@ -10,7 +11,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Posts {
+public class Posts extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
