@@ -15,6 +15,6 @@ public class MainApplication extends SpringBootServletInitializer {
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-        return super.configure(builder);
+        return builder.sources(MainApplication.class); // for profile
     }
 }

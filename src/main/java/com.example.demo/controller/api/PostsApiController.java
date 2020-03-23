@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @RequestMapping(Api.API_V1_URI)
 @Slf4j
-public class PostApiController {
+public class PostsApiController {
 
     private final PostsService postsService;
 

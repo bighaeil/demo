@@ -5,15 +5,16 @@ import com.example.demo.domain.posts.repository.PostsRepository;
 import com.example.demo.infrastructure.spring.annotation.Provider;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-@Provider
 @RequiredArgsConstructor
+@Service
 @Slf4j
 public class PostsProvider {
 
-    private PostsRepository postsRepository;
+    private final PostsRepository postsRepository;
 
     public Optional<Posts> findById(Long id) {
         return postsRepository.findById(id);
